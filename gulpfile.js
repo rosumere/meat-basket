@@ -18,8 +18,14 @@ gulp.task("css", function () {
     .pipe(postcss([
       autoprefixer()
     ]))
-    .pipe(gulp.dest("./build/src/css/"))
+    .pipe(gulp.dest("./src/css/"))
     .pipe(server.stream());
+});
+
+gulp.task('css-concat', function() {
+    return gulp.src(["./src/css/normalize.css", "./src/css/bootstrap-grid.css", "./src/css/*.css"])
+        .pipe(concat("all.css"))
+        .pipe(gulp.dest("./build/src/css/"));
 });
 
 gulp.task("scripts", function() {
@@ -43,7 +49,8 @@ gulp.task("server", function () {
   gulp.watch("src/img/*", gulp.series("build-src"));
   gulp.watch("*src/js/*.js", gulp.series("scripts"));
   gulp.watch("*src/_sass/**/*.{scss,sass}", gulp.series("css"));
+  gulp.watch("*src/css/*.css", gulp.series("css-concat"));
   gulp.watch("*build/*.html").on("change", server.reload);
 });
 
-gulp.task("start", gulp.series("build-src", "css", "scripts", "server"));
+gulp.task("start", gulp.series("build-src", "css", "css-concat", "scripts", "server"));
