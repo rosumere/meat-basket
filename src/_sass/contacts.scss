@@ -1,0 +1,117 @@
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__map {
+    width: 50%;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    background-color: #e0202f;
+    padding: 1rem 2rem 1rem 4rem;
+  }
+
+  &__title {
+    color: $color-white;
+    text-align: left;
+  }
+
+  &__phone {
+    position: relative;
+    color: $color-white;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-left: 30px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: url("/src/img/phone-icon.svg");
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+  &__mail {
+    position: relative;
+    color: $color-white;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding-left: 30px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: url("/src/img/mail-icon.svg");
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+     &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+  &__adress-title {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: $color-white;
+    padding-left: 30px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: url("/src/img/mapmaker-icon.svg");
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__adress-item {
+    color: $color-white;
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: $screen-md) {
+  .contacts {
+    flex-direction: column;
+
+    &__map {
+      width: 100%;
+      order: 1;
+    }
+
+    &__inner {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.homepage-banner {
+  background-color: $color-gray;
+  background-image: url("/src/img/homepage-banner.jpg");
+
+  &__wrapper {
+    background-color: rgba(0, 0, 0, 0.6);
+    min-height: 800px;
+    border-bottom: 5px solid $color-primary;
+  }
+
+  &__title {
+    margin: 0;
+    text-align: center;
+    font-size: 3.5rem;
+    color: #fff;
+    padding-top: 150px;
+    line-height: 1.5;
+  }
+
+  &__descr {
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-top: 20px;
+    font-weight: 300;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto 1rem auto;
+    max-width: 30rem;
+
+  }
+}
+
+@media screen and (max-width: $screen-md) {
+  .homepage-banner {
+
+    &__title {
+      font-size: 2.5rem;
+    }
+
+    &__descr {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm) {
+  .homepage-banner {
+
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+#homepage-banner__form {
+  width: 600px;
+  padding: 0 10px;
+}

@@ -1,0 +1,108 @@
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 15px 0 15px;
+  background-color: #000000;
+  color: #fff;
+
+  &__logo {
+    max-width: 300px;
+    padding-bottom: 1rem;
+  }
+
+  &__menu {
+    padding-bottom: 1rem;
+  }
+
+  &__contacts {
+    padding-bottom: 1rem;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__menu-item {
+    margin-right: 1rem;
+    padding: 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__menu-link {
+    text-decoration: none;
+    color: $color-white;
+    padding: 20px 10px;
+    font-weight: 900;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:active {
+      color: $color-gray;
+    }
+  }
+
+  &__contacts-tel {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 1.2rem;
+    font-weight: 900;
+    position: relative;
+    padding-left: 30px;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:active {
+      color: $color-gray;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      background: url("/src/img/phone-icon-red.svg");
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+  .site-header {
+    flex-direction: column;
+
+    &__menu {
+      padding-bottom: 1rem;
+    }
+
+    &__menu-list {
+      flex-direction: column;
+    }
+
+    &__menu-item {
+      padding-bottom: 1rem;
+    }
+
+    &__logo {
+      padding-bottom: 1rem;
+    }
+  }
+}

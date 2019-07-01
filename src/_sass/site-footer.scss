@@ -1,0 +1,113 @@
+.site-footer {
+  background-color: $color-black;
+  padding: 1.5rem 0 0 0;
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info {
+    max-width: 300px;
+    padding-bottom: 1.5rem;
+  }
+
+  &__info-descr {
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  &__menu {
+    margin: 0 3rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__menu-link {
+    color: $color-white;
+    font-weight: 900;
+    padding: 20px 10px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+  }
+
+  &__contacts-tel {
+    position: relative;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding-left: 30px;
+    margin-bottom: 0.5rem;
+    color: $color-white;
+  }
+
+  &__contacts-button-form {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: $color-primary;
+    color: $color-white;
+    margin-bottom: 0;
+  }
+
+  &__contacts-tel:before {
+    position: absolute;
+    content: "";
+    background: url(/src/img/phone-icon-red.svg);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+  .site-footer {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__menu-link {
+      flex-direction: column;
+    }
+
+    &__menu-list {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__menu-item {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-lg) {
+  .site-footer {
+    &__menu {
+      order: 1;
+    }
+  }
+}
+
