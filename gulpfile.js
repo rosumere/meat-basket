@@ -8,8 +8,13 @@ var server = require("browser-sync").create();
 var concat = require("gulp-concat");
 
 gulp.task("build-src", function() {
-  return gulp.src('./src/img/*') //Выберем файлы по нужному пути
-    .pipe(gulp.dest('./build/src/img')) //Выплюнем их в папку build/src/img
+  return gulp.src('./src/img/*') // Выберем файлы по нужному пути
+    .pipe(gulp.dest('./build/src/img')) // Выплюнем их в папку build/src/img
+});
+
+gulp.task("build-smartlid", function() {
+  return gulp.src('./src/js/smartlid/**') // Выберем файлы по нужному пути
+    .pipe(gulp.dest('./build/smartlid/')) // Выплюнем их в папку build/src/img
 });
 
 gulp.task("css", function () {
@@ -34,10 +39,16 @@ gulp.task("scripts", function() {
     .pipe(gulp.dest("./build/src/js/"));
 });
 
+gulp.task("build-html", function() {
+  return gulp.src('./src/html/*') // Выберем файлы по нужному пути
+    .pipe(gulp.dest('./build/')) // Выплюнем их в папку build
+});
+
+
 gulp.task("server", function () {
   server.init({
     server: {
-      baseDir: 'build'
+      baseDir: "build"
     },
     notify: false,
     baseDir: "build",
@@ -53,4 +64,4 @@ gulp.task("server", function () {
   gulp.watch("*build/*.html").on("change", server.reload);
 });
 
-gulp.task("start", gulp.series("build-src", "css", "css-concat", "scripts", "server"));
+gulp.task("start", gulp.series("build-src", "build-smartlid", "css", "css-concat", "scripts", "build-html", "server"));
